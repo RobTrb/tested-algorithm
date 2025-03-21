@@ -60,9 +60,13 @@ describe('wordChecker()', () => {
         })
     })
     */
-
+   /*
+   Final test checks the complete function. Meaning that 2 words are compared and no matter
+   if the guess starts with lower case letter it gets returner with an uppercase letter and
+   all the results for each letter are as expected
+   */
   it('should change "result" to fit paramaters of list item 3 in end goals', () => {
-    const output = wordChecker('Grape', 'great');
+    const output = wordChecker('grape', 'great');
     expect(output).toEqual({
       checkedGuess: [
         { letter: 'G', result: 'correct' },
