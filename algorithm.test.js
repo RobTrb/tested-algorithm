@@ -24,7 +24,7 @@ the function now compares every single letter between those words. While compari
 'misplaced': the letter exists in the answer but not on this place
 'correct': the letter exists and at the same place as the guess
 
-5. Change the first letter to a upper case letter
+4. Change the first letter to a upper case letter
 */
 
 import { describe, expect, it } from '@jest/globals';
