@@ -17,33 +17,35 @@ guess: [
 ]
 
 3. With 2 words (first being "guess" and second being "answer") now converted propperly
-the function now compares every single letter between those words.
+the function now compares every single letter between those words. While comparing the
+ function should change the result to one of three possible results:
 
-4. While comparing the function should change the result to one of three possible results:
 'incorrect': if the letter in the guess word does not exist in the answer
-'missplaced': the letter exists in the answer but not on this place
+'misplaced': the letter exists in the answer but not on this place
 'correct': the letter exists and at the same place as the guess
 
 5. Change the first letter to a upper case letter
 */
 
-import { describe, expect, it } from '@jest/globals'
-import { wordChecker } from './algorithm.js'
+import { describe, expect, it } from '@jest/globals';
+import { wordChecker } from './algorithm.js';
 
 /*
 Tests written below. Starting with tests and then adding the functionality. Tests that 
 becomme irrelevant during the coding proccess will be commented out
 */
 
-describe('wordChecker()', ()=>{
-    //First test checks that characters are converted to lower case letters
-    /*
+describe('wordChecker()', () => {
+  /*
+    First test checks that characters are converted to lower case letters
     it('should return the words you put in with first letter converted to upper case', ()=>{
         const output = wordChecker('Hello', 'Test')
         expect(output).toBe('hello test')
     })
     */
-    //Second test checks that words have been converted to an array with objects
+
+  /*
+    Second test checks that words have been converted to an array with objects
     it('should return an array for each word with objects that have properties', ()=>{
         const output = wordChecker('Be', 'It')
         expect(output).toEqual({
@@ -56,7 +58,19 @@ describe('wordChecker()', ()=>{
                 {letter: 't', result: 'blank'}
             ]
         })
-
     })
+    */
 
-})
+  it('should change "result" to fit paramaters of list item 3 in end goals', () => {
+    const output = wordChecker('Grape', 'great');
+    expect(output).toEqual({
+      checkedGuess: [
+        { letter: 'G', result: 'correct' },
+        { letter: 'r', result: 'correct' },
+        { letter: 'a', result: 'misplaced' },
+        { letter: 'p', result: 'incorrect' },
+        { letter: 'e', result: 'misplaced' },
+      ],
+    });
+  });
+});
